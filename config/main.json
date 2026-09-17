@@ -1,0 +1,8 @@
+{
+  "target": "./targets/demo.json",
+  "storage": { "temp": "../storage/temp", "output": "../storage/output", "reports": "../storage/reports", "keepCompleted": true },
+  "retry": { "attempts": 3, "baseDelayMs": 500, "maxDelayMs": 10000, "jitter": true },
+  "network": { "timeoutMs": 30000, "maxPageBytes": 2097152 },
+  "media": { "maxDownloadBytes": 268435456, "processTimeoutMs": 300000, "maxSegments": 1000 },
+  "destination": { "url": "http://127.0.0.1:3002/api/media", "timeoutMs": 120000 }
+}

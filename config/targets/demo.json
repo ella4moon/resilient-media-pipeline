@@ -1,0 +1,17 @@
+{
+  "baseUrl": "http://127.0.0.1:3001",
+  "allowedOrigins": ["http://127.0.0.1:3001"],
+  "discovery": { "startUrls": ["/list"], "pageLinkSelector": "a.video", "nextPageSelector": "a.next", "maxPages": 5, "maxJobs": 20 },
+  "metadata": {
+    "title": { "selector": "h1" },
+    "description": { "selector": "meta[name='description']", "attribute": "content" },
+    "thumbnailUrl": { "selector": "meta[property='og:image']", "attribute": "content" },
+    "tags": { "selector": ".tag", "multiple": true }
+  },
+  "mediaDiscovery": [
+    { "type": "selector", "selector": "video[src], video source[src]", "attribute": "src" },
+    { "type": "json", "selector": "script#player-data", "path": "media.url" },
+    { "type": "iframe", "selector": "iframe", "strategies": [{ "type": "selector", "selector": "video[src]", "attribute": "src" }] }
+  ],
+  "validation": { "requiredMetadata": ["title"], "minimumBytes": 100, "maximumBytes": 268435456, "minimumDurationSeconds": 0.5, "maximumDurationSeconds": 600, "minimumWidth": 64, "minimumHeight": 64, "decode": true }
+}
